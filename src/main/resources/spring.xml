@@ -1,11 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:contest="http://www.springframework.org/schema/context"
+       xmlns:context="http://www.springframework.org/schema/context"
        xmlns:app="http://www.springframework.org/schema/aop"
-       xsi:schemaLocation="
-        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <bean id="doctor" class="demo.Doctor"></bean>
+    <bean id="doctor" class="demo.Doctor">
+        <constructor-arg value="Doctor ABC"/>
+
+        <!--set the values of properties through container-->
+        <property name="qualification" value="MBBS"></property>
+        <property name="nurse" ref="nurse"></property>
+    </bean>
     <bean id="nurse" class="demo.Nurse"></bean>
+
+
+    <!-- Dependency Injection using Annotation-->
+    <context:component-scan base-package="demo"></context:component-scan>
+
 </beans>
