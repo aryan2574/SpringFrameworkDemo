@@ -38,5 +38,14 @@ public class Main {
         Nurse nurse1 = context1.getBean(Nurse.class);
         nurse1.assist();
 
+        Medic medic = context1.getBean(Medic.class);
+        medic.assist();
+        medic.setQualification("Medicine");
+        System.out.println(medic);
+
+        Medic medic2 = context1.getBean(Medic.class);
+        medic2.setQualification("Surgery");
+        System.out.println(medic2);
+        System.out.println(medic);  // It will give same output as Medic 2 because singleton scope
     }
 }
