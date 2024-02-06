@@ -18,5 +18,4 @@
 
     <!-- Dependency Injection using Annotation-->
     <context:component-scan base-package="demo"></context:component-scan>
-
 </beans>
